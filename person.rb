@@ -8,16 +8,19 @@ class Person
         @parent_permission = parent_permission
     end
 
-    private
-
     def of_age?
         return true if @age >= 18
         return false
+    end
+
+    def can_use_services?
+        return true if of_age? || @parent_permission
     end
 
     private :of_age?
 
 end
 
-person = Person.new(15)
+person = Person.new(25)
 puts person.instance_eval('of_age?')
+puts person.can_use_services?
