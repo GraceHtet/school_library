@@ -122,8 +122,6 @@ My coding partner and Microverse
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
