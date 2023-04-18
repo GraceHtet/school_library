@@ -10,6 +10,3 @@ class Student < Person
     '¯(ツ)/¯'
   end
 end
-
-
-puts Student.new('elementary', 12).play_hooky
