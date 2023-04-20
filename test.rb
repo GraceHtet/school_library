@@ -1,28 +1,27 @@
-# require_relative './lib/person'
-# require_relative './decorator/capitalize_decorator'
-# require_relative './decorator/trimmer_decorator'
-
-# person = Person.new(22, 'maximilianus')
-# puts person.correct_name
-
-# capitalized_person = CapitalizeDecorator.new(person)
-# puts capitalized_person.correct_name
-
-# capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-# puts capitalized_trimmed_person.correct_name
-
-require_relative './lib/classroom'
+require_relative './lib/book'
+require_relative './lib/rental'
+require_relative './lib/person'
+require_relative './lib/teacher'
 require_relative './lib/student'
+require_relative './lib/classroom'
 
-classroom = Classroom.new('Middle')
-student = Student.new('middle',23,'Grace')
-student2 = Student.new('high',24,'htet')
+mid_class = Classroom.new('Middle')
+high_class = Classroom.new('High')
+student_lily = Student.new(mid_class, 12, 'Lily', parent_permission: false)
+student_lily.add_classroom = mid_class
 
+student_fio = Student.new(mid_class, 11, 'Fio', parent_permission: false)
+student_fio.add_classroom = mid_class
 
-print classroom.students
-print student.classroom
+student_flora = Student.new(high_class, 19, 'Flora')
+teacher_grace = Teacher.new('Math', 23, 'Grace')
+fantasy1 = Book.new('The curse child', 'J.K.Rowling')
+fantasy2 = Book.new('Twilight saga', 'Stephenie Meyer')
+fantasy3 = Book.new('The Diary of Anne Frank', 'Anne Frank')
+Rental.new('2023-02-22', teacher_grace, fantasy3)
+Rental.new('2023-01-11', student_lily, fantasy1)
+Rental.new('2023-01-11', student_fio, fantasy1)
+Rental.new('2023-03-12', student_flora, fantasy2)
 
-classroom.add_students(student)
-classroom.add_students(student2)
-print classroom.students
-# print student.classroom
+puts mid_class.students
+puts fantasy1.rents
