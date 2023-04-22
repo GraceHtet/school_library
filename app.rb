@@ -26,7 +26,7 @@ class Option
   end
 
   def create_person
-    print 'Do you want to create a student(1) or a teacher(2)? [Input the number]: '
+    puts 'Do you want to create a student(1) or a teacher(2)? [Input the number]: '
     type = gets.chomp.to_i
 
     if [1, 2].include?(type)
