@@ -10,7 +10,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -47,11 +46,6 @@ School library is a backend project with ruby .
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- **Live demo not available at this time**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -85,14 +79,16 @@ ruby main.rb
 
 ## 👥 Authors <a name="authors"></a>
 
-> I am the sole author of this project.
-
 👤 **Grace Htet**
 
 - GitHub: [Grace Htet](https://github.com/GraceHtet)
 - LinkedIn: [Grace Htet](https://linkedin.com/in/thirihtethtetaung)
 - Twitter: [Grace Htet](https://twitter.com/Grace_Htet4)
 - Angelist: [Grace Htet](https://wellfound.com/u/thiri-htet)
+👤 **Adeka Zeffs**
+
+- GitHub: [zeff96](https://github.com/zeff96)
+- LinkedIn: [zeff adeka](https://www.linkedin.com/in/zeff-adeka/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
