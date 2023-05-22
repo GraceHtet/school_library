@@ -29,26 +29,40 @@ class Option
     puts 'Do you want to create a student(1) or a teacher(2)? [Input the number]: '
     type = gets.chomp.to_i
 
-    if [1, 2].include?(type)
-      print 'Age: '
-      age = gets.chomp.to_i
-
-      print 'Name: '
-      name = gets.chomp
-
-      if type == 1
-        print 'Has parent Permission? [Y/N]: '
-        permission = gets.chomp.downcase == 'y'
-        people = Student.new(age, name, parent_permission: permission)
-      elsif type == 2
-        print 'Specialization: '
-        people = Teacher.new(gets.chomp, age, name)
-      end
-      @person << people
-      puts "Created a Person successfully. \n"
+    case type
+    when 1
+      create_student
+    when 2
+      create_teacher
     else
-      puts "Invalid type \n"
+      puts 'Invalid option :('
     end
+  end
+
+  def create_student
+    print 'Age: '
+    age = gets.chomp.to_i
+    print 'Name: '
+    name = gets.chomp
+    print 'Has parent Permission? [Y/N]: '
+    permission = gets.chomp.downcase == 'y'
+
+    student = Student.new(age, name, parent_permission: permission)
+    @person << student unless student.nil?
+    puts 'Student created successfully!'
+  end
+
+  def create_teacher
+    print 'Age: '
+    age = gets.chomp.to_i
+    print 'Name: '
+    name = gets.chomp
+    print 'Specialization: '
+    specialization = gets.chomp
+
+    teacher = Teacher.new(specialization, age, name)
+    @person << teacher unless teacher.nil?
+    puts 'Teacher created successfully!'
   end
 
   def create_book
@@ -59,7 +73,7 @@ class Option
     author = gets.chomp
 
     @books << Book.new(title, author)
-    print 'Book created'
+    puts 'Book created'
   end
 
   def create_rental
@@ -79,19 +93,29 @@ class Option
     date = gets.chomp.to_i
 
     @rents << Rental.new(date, @person[person_num], @books[book_num])
-    print "Rental created successfully \n"
+    puts 'Rental created successfully '
   end
 
-  def list_rentals
+  def list_all_person_rentals
     puts 'List all rents for a given person id'
-    person_id = gets.chomp.to_i.to_i
-    selected = @rents.select { |r| r.person.id == person_id }
+    person_id = gets.chomp.to_i
+    list_rentals(person_id)
+  end
 
-    puts "No rental found for this person id \n" if selected.empty?
+  def list_rentals(person_id)
+    person = @person.find { |p| p.id == person_id }
 
-    puts 'Rental: '
-    selected.each do |select|
-      puts "Date: #{select.date}, Book: \"#{select.book.title}\" by #{select.book.author}"
+    if person
+      puts 'Rental:'
+      person.rents.each do |rental|
+        puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
+      end
+    else
+      puts 'No rental found for this person id'
     end
+  end
+
+  def exit_program
+    puts 'Thanks for using this app'
   end
 end
