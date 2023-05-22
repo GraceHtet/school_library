@@ -111,7 +111,7 @@ class Option
         puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
       end
     else
-      puts "No rental found for this person id"
+      puts 'No rental found for this person id'
     end
   end
 
