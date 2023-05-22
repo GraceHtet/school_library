@@ -96,6 +96,6 @@ class Option
   end
 
   def exit_program
-    puts "Thanks for using this app"
+    puts 'Thanks for using this app'
   end
 end

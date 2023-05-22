@@ -1,15 +1,12 @@
-
-
 OPTIONS = {
-  1 => {label: 'List all books', action: :list_books},
-  2 => {label: 'List all people', action: :list_people},
-  3 => {label: 'Create a person', action: :create_person},
-  4 => {label: 'Create a book', action: :create_book},
-  5 => {label: 'Create a rental', action: :create_rental},
-  6 => {label: 'List all rentals for a given person id', action: :list_rentals},
-  7 => {label: 'exit', action: :exit_program},
-}
-
+  1 => { label: 'List all books', action: :list_books },
+  2 => { label: 'List all people', action: :list_people },
+  3 => { label: 'Create a person', action: :create_person },
+  4 => { label: 'Create a book', action: :create_book },
+  5 => { label: 'Create a rental', action: :create_rental },
+  6 => { label: 'List all rentals for a given person id', action: :list_rentals },
+  7 => { label: 'exit', action: :exit_program }
+}.freeze
 
 class Menu
   def initialize(app)
@@ -18,7 +15,7 @@ class Menu
 
   def display
     puts "\nPlease choose an option by entering a number:"
-    OPTIONS.each {|number, option| puts "#{number} - #{option[:label]}"}
+    OPTIONS.each { |number, option| puts "#{number} - #{option[:label]}" }
   end
 
   def handle_selection(selection)
@@ -26,7 +23,7 @@ class Menu
     if handlers
       @app.send(handlers[:action])
     else
-      puts "Invalid options ):"
+      puts 'Invalid options ):'
     end
   end
 

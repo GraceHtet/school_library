@@ -1,8 +1,6 @@
 require_relative 'menu'
 require_relative 'app'
 
-
-
 def main
   app = Option.new
   menu = Menu.new(app)
