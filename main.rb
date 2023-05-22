@@ -1,13 +1,12 @@
 require_relative 'menu'
+require_relative 'app'
 
-MENU = Menu.new
+
 
 def main
-  num = MENU.select_option
-  return puts "Thanks for using this app \n" if num == 7
-
-  MENU.choices(num)
-  main
+  app = Option.new
+  menu = Menu.new(app)
+  menu.menu_list
 end
 
 print "Welcome to school library app!!! \n"

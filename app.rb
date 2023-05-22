@@ -94,4 +94,8 @@ class Option
       puts "Date: #{select.date}, Book: \"#{select.book.title}\" by #{select.book.author}"
     end
   end
+
+  def exit_program
+    puts "Thanks for using this app"
+  end
 end

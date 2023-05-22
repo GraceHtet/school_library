@@ -1,26 +1,41 @@
-require_relative 'app'
+
+
+OPTIONS = {
+  1 => {label: 'List all books', action: :list_books},
+  2 => {label: 'List all people', action: :list_people},
+  3 => {label: 'Create a person', action: :create_person},
+  4 => {label: 'Create a book', action: :create_book},
+  5 => {label: 'Create a rental', action: :create_rental},
+  6 => {label: 'List all rentals for a given person id', action: :list_rentals},
+  7 => {label: 'exit', action: :exit_program},
+}
+
 
 class Menu
-  def initialize
-    @options = Option.new
+  def initialize(app)
+    @app = app
   end
 
-  def select_option
-    puts "\n Please choose an option by entering a number:
-        1 - List all books
-        2 - List all people
-        3 - Create a person
-        4 - Create a book
-        5 - Create a rental
-        6 - List all rentals for a given person id
-        7 - Exit"
-
-    gets.chomp.to_i
+  def display
+    puts "\nPlease choose an option by entering a number:"
+    OPTIONS.each {|number, option| puts "#{number} - #{option[:label]}"}
   end
 
-  def choices(num)
-    option_list = %w[list_books list_people create_person create_book create_rental list_rental]
-    chosen = option_list[num - 1]
-    @options.send(chosen.to_s)
+  def handle_selection(selection)
+    handlers = OPTIONS[selection]
+    if handlers
+      @app.send(handlers[:action])
+    else
+      puts "Invalid options ):"
+    end
+  end
+
+  def menu_list
+    loop do
+      display
+      option = gets.chomp.to_i
+      handle_selection(option)
+      break if option == OPTIONS.size
+    end
   end
 end
