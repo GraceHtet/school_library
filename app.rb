@@ -110,8 +110,8 @@ class Option
       person.rents.each do |rental|
         puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
       end
-    elsif selected.empty?
-      puts "No rental found for this person id \n"
+    else
+      puts "No rental found for this person id"
     end
   end
 
