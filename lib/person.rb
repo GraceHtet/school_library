@@ -31,11 +31,12 @@ class Person < Nameable
     Rental.new(date, book, self)
   end
 
-  def hash_format
+  def to_hash
     {
-      :id => @id,
-      :name => @name,
-      :age => @age
+      age: age,
+      name: name,
+      parent_permission: @parent_permission,
+      type: @type
     }
   end
 
