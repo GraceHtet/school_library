@@ -4,9 +4,9 @@ class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age, :rents
 
-  def initialize(age, name = 'Unknown', parent_permission: true)
+  def initialize(age, name: 'Unknown', parent_permission: true, id: Random.rand(1..1000) )
     super()
-    @id = Random.rand(1..1000)
+    @id= id 
     @name = name
     @age = age
     @parent_permission = parent_permission
@@ -29,6 +29,14 @@ class Person < Nameable
 
   def add_rental(book, date)
     Rental.new(date, book, self)
+  end
+
+  def hash_format
+    {
+      :id => @id,
+      :name => @name,
+      :age => @age
+    }
   end
 
   private :of_age?

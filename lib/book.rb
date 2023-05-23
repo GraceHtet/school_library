@@ -11,4 +11,11 @@ class Book
   def add_rental(person, date)
     Rental.new(date, self, person)
   end
+
+  def hash_format
+    {
+      title: @title,
+      author: @author
+    }
+  end
 end
