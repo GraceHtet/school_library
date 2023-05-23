@@ -10,10 +10,7 @@ class Teacher < Person
     true
   end
 
-  def hash_format
-    hash = super
-    hash[:specialization] = @specialization
-    hash[:type] = self.class.name
-    hash
+  def to_hash
+    super.merge(specialization: @specialization)
   end
 end
