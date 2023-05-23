@@ -1,15 +1,24 @@
 require 'json'
 
 class Storage
-  def store_data(data, arr, path)
-    arr.push(data)
-    json = JSON.generate(arr)
-    File.write(path, json)
+  def initialize(file_name)
+    @file_name = file_name
   end
 
-  def load_data(path)
-    file_data = File.read(path)
-    datas = JSON.parse(file_data, { symbolize_names: true }) unless file_data == ''
-    datas
+  def save_data(data)
+    File.open(@file_name, 'w') do |file|
+      file.write(JSON.pretty_generate(data))
+    end
+    puts 'Data saved succesfully!'
+  end
+
+  def load_data
+    return nil unless File.exist?(@file_name)
+    file_contents = File.read(@file_name)
+    return JSON.parse(file_contents) unless file_contents.empty?
+    nil
+  rescue JSON::ParserError
+    puts "Error parsing #{@file_name}.Invalid json format!"
+    nil
   end
 end
