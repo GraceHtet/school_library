@@ -1,6 +1,6 @@
 OPTIONS = {
-  1 => { label: 'List all books', action: :list_books },
-  2 => { label: 'List all people', action: :list_people },
+  1 => { label: 'List all books', action: :list_all_books },
+  2 => { label: 'List all people', action: :list_all_people },
   3 => { label: 'Create a person', action: :create_person_prompt },
   4 => { label: 'Create a book', action: :create_book },
   5 => { label: 'Create a rental', action: :create_rental },
