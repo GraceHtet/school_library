@@ -12,10 +12,10 @@ class Book
     Rental.new(date, self, person)
   end
 
-  def hash_format
+  def to_hash
     {
-      title: @title,
-      author: @author
+      title: title,
+      author: author
     }
   end
 end
