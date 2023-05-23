@@ -1,0 +1,15 @@
+[
+  {
+    "age": 22,
+    "name": "adeka",
+    "parent_permission": false,
+    "type": "Student"
+  },
+  {
+    "age": 30,
+    "name": "zeff",
+    "parent_permission": true,
+    "type": "Teacher",
+    "specialization": "developer"
+  }
+]

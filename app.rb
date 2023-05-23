@@ -6,9 +6,9 @@ require_relative 'storage'
 
 class Option
   def initialize
-    @reserve_people = ReserveData.new('data/people.json')
-    @reserve_books = ReserveData.new('data/books.json')
-    @reserve_rentals = ReserveData.new('data/rentals.json')
+    @reserve_people = Storage.new('data/people.json')
+    @reserve_books = Storage.new('data/books.json')
+    @reserve_rentals = Storage.new('data/rentals.json')
     @books = load_books_data || []
     @people = load_person_data || []
     @rentals = @reserve_rentals.load_data || []
@@ -144,18 +144,21 @@ class Option
   def load_books_data
     book_data = @reserve_books.load_data
     return nil if book_data.nil?
+
     book_data.map { |data| Book.new(data['title'], data['author']) }
   end
 
   def load_person_data
     person_data = @reserve_people.load_data
     return nil if person_data.nil?
+
     person_data.map do |data|
       case data['type']
       when 'Student'
         Student.new(data['age'], name: data['name'], parent_permission: data['parent_permission'])
       when 'Teacher'
-        Teacher.new(data['age'], data['specialization'], name: data['name'], parent_permission: data['parent_permission'])
+        Teacher.new(data['age'], data['specialization'], name: data['name'],
+                                                         parent_permission: data['parent_permission'])
       else
         puts "Unknown person #{data['type']}!"
       end
