@@ -3,8 +3,8 @@ require_relative 'person'
 class Teacher < Person
   attr_accessor :specialization
 
-  def initialize(age, specialization, name: 'Unknown', parent_permission: true)
-    super(age, name: name, parent_permission: parent_permission)
+  def initialize(id, age, specialization, name: 'Unknown', parent_permission: true)
+    super(id, age, name: name, parent_permission: parent_permission)
     @specialization = specialization
   end
 
@@ -13,6 +13,10 @@ class Teacher < Person
   end
 
   def to_hash
-    super.merge(specialization: @specialization)
+    hash = {
+      id: id,
+      specialization: @specialization
+    }
+    super.merge(hash)
   end
 end

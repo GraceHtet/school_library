@@ -46,7 +46,6 @@ School library is a backend project with ruby .
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
@@ -85,6 +84,7 @@ ruby main.rb
 - LinkedIn: [Grace Htet](https://linkedin.com/in/thirihtethtetaung)
 - Twitter: [Grace Htet](https://twitter.com/Grace_Htet4)
 - Angelist: [Grace Htet](https://wellfound.com/u/thiri-htet)
+
 👤 **Adeka Zeffs**
 
 - GitHub: [zeff96](https://github.com/zeff96)
@@ -94,7 +94,7 @@ ruby main.rb
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Decorate class**
+- [ ] **Unit Test**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,7 +102,7 @@ ruby main.rb
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/GraceHtet/school_library/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -11,7 +11,7 @@ class Option
     @reserve_rentals = Storage.new('data/rentals.json')
     @books = load_books_data || []
     @people = load_person_data || []
-    @rentals = @reserve_rentals.load_data || []
+    @rentals = load_rental_data || []
   end
 
   def list_all_books
@@ -51,7 +51,7 @@ class Option
     name = prompt_input('Name: ')
     parent_permission = prompt_yes_no('Has parent permission?')
 
-    student = Student.new(age, name: name, parent_permission: parent_permission)
+    student = Student.new(nil, age, name: name, parent_permission: parent_permission)
     @people << student unless student.nil?
     puts 'Student created succesfully!'
   end
@@ -61,7 +61,7 @@ class Option
     name = prompt_input('Name: ')
     specialization = prompt_input('Specialization: ')
 
-    teacher = Teacher.new(age, specialization, name: name)
+    teacher = Teacher.new(nil, age, specialization, name: name)
     @people << teacher unless teacher.nil?
     puts 'Teacher created successfully!'
   end
@@ -94,11 +94,10 @@ class Option
   end
 
   def list_person_rentals(person_id)
-    person = @people.find { |p| p.id == person_id }
-
+    person = @rentals.select { |p| p.person.id == person_id }
     if person
       puts 'Rentals:'
-      person.rental.each do |rental|
+      person.each do |rental|
         puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
       end
     else
@@ -144,20 +143,35 @@ class Option
     book_data.map { |data| Book.new(data['title'], data['author']) }
   end
 
+  def person_hash_to_obj(data)
+    case data['type']
+    when 'Student'
+      Student.new(data['id'], data['age'], name: data['name'], parent_permission: data['parent_permission'])
+    when 'Teacher'
+      Teacher.new(data['id'], data['age'], data['specialization'], name: data['name'],
+                                                                   parent_permission: data['parent_permission'])
+    else
+      puts "Unknown person #{data['type']}!"
+    end
+  end
+
   def load_person_data
     person_data = @reserve_people.load_data
     return nil if person_data.nil?
 
     person_data.map do |data|
-      case data['type']
-      when 'Student'
-        Student.new(data['age'], name: data['name'], parent_permission: data['parent_permission'])
-      when 'Teacher'
-        Teacher.new(data['age'], data['specialization'], name: data['name'],
-                                                         parent_permission: data['parent_permission'])
-      else
-        puts "Unknown person #{data['type']}!"
-      end
+      person_hash_to_obj(data)
+    end
+  end
+
+  def load_rental_data
+    rental_data = @reserve_rentals.load_data
+    return nil if rental_data.nil?
+
+    rental_data.map do |data|
+      person_data = person_hash_to_obj(data['person'])
+      book_data = Book.new(data['book']['title'], data['book']['author'])
+      Rental.new(data['date'], book_data, person_data)
     end
   end
 end

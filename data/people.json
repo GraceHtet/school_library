@@ -1,8 +1,24 @@
 [
   {
-    "age": 22,
+    "age": 12,
+    "name": "mile",
+    "parent_permission": true,
+    "type": "Student",
+    "id": 906
+  },
+  {
+    "age": 18,
+    "name": "ace",
+    "parent_permission": true,
+    "type": "Student",
+    "id": 682
+  },
+  {
+    "age": 28,
     "name": "Htet",
     "parent_permission": true,
-    "type": "Student"
+    "type": "Teacher",
+    "id": 513,
+    "specialization": "Physic"
   }
 ]

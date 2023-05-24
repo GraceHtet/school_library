@@ -3,8 +3,8 @@ require_relative 'person'
 class Student < Person
   attr_reader :classroom
 
-  def initialize(age, name: 'Unknown', parent_permission: true)
-    super(age, name: name, parent_permission: parent_permission)
+  def initialize(id, age, name: 'Unknown', parent_permission: true)
+    super(id, age, name: name, parent_permission: parent_permission)
   end
 
   def classroom=(classroom)
@@ -14,5 +14,9 @@ class Student < Person
 
   def play_hooky
     '¯(ツ)/¯'
+  end
+
+  def to_hash
+    super.merge(id: id)
   end
 end
