@@ -1,15 +1,8 @@
 [
   {
     "age": 22,
-    "name": "adeka",
-    "parent_permission": false,
-    "type": "Student"
-  },
-  {
-    "age": 30,
-    "name": "zeff",
+    "name": "Htet",
     "parent_permission": true,
-    "type": "Teacher",
-    "specialization": "developer"
+    "type": "Student"
   }
 ]

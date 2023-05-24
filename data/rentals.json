@@ -1,16 +1,2 @@
 [
-  {
-    "date": "2023/05/15",
-    "book": {
-      "title": "Mathematics",
-      "author": "Longhorn"
-    },
-    "person": {
-      "age": 30,
-      "name": "zeff",
-      "parent_permission": true,
-      "type": "Teacher",
-      "specialization": "developer"
-    }
-  }
 ]

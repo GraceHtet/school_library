@@ -53,7 +53,6 @@ class Option
 
     student = Student.new(age, name: name, parent_permission: parent_permission)
     @people << student unless student.nil?
-    save_people_data
     puts 'Student created succesfully!'
   end
 
@@ -64,7 +63,6 @@ class Option
 
     teacher = Teacher.new(age, specialization, name: name)
     @people << teacher unless teacher.nil?
-    save_people_data
     puts 'Teacher created successfully!'
   end
 
@@ -72,7 +70,6 @@ class Option
     title = prompt_input('Title: ')
     author = prompt_input('Author: ')
     @books << Book.new(title, author)
-    save_books_data
     puts 'Book created successfully!'
   end
 
@@ -88,7 +85,6 @@ class Option
     date = prompt_input('Date[YYYY/Mon/Date]: ')
     rental = Rental.new(date, @books[book_index], @people[person_index])
     @rentals << rental unless rental.nil?
-    save_rentals_data
     puts 'Rental created successfully!'
   end
 
