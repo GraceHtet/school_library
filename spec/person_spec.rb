@@ -32,6 +32,10 @@ describe Person do
   context 'when testing the method' do
     person = Person.new(nil, 17, name: 'Milli')
 
+    it 'Should return the correct name' do
+      expect(person.correct_name).to eq 'Milli'
+    end
+
     it 'should change to hash format' do
       hash = {
         age: 17,

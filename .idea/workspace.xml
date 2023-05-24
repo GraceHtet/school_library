@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f03f2576-aebf-4630-939b-db7aad5515a7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/spec/person_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/person.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/person.rb" afterDir="false" />
-    </list>
+    <list default="true" id="f03f2576-aebf-4630-939b-db7aad5515a7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +51,7 @@
       <workItem from="1681734824157" duration="677000" />
       <workItem from="1682085402643" duration="48000" />
       <workItem from="1684915892843" duration="419000" />
-      <workItem from="1684933158675" duration="3894000" />
+      <workItem from="1684933158675" duration="4499000" />
     </task>
     <servers />
   </component>
