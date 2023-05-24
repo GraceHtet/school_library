@@ -1,7 +1,7 @@
 require_relative '../nameable'
 
 class Person < Nameable
-  attr_reader :id
+  attr_reader :id, :parent_permission
   attr_accessor :name, :age, :rental, :type
 
   def initialize(id, age, name: 'Unknown', parent_permission: true)
@@ -15,7 +15,7 @@ class Person < Nameable
   end
 
   def can_use_services?
-    return true if of_age || @parent_permission
+    return true if of_age? || @parent_permission
 
     false
   end
@@ -24,8 +24,8 @@ class Person < Nameable
     @name
   end
 
-  def add_rental(person, date)
-    Rental.new(person, self, date)
+  def add_rental(book, date)
+    Rental.new(date, book, self)
   end
 
   def to_hash
