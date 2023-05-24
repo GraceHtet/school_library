@@ -11,6 +11,7 @@ describe Classroom do
 
     it 'should add student to classroom' do
       classroom.add_students(student)
+      expect(classroom.students).to include(student)
     end
   end
 end
