@@ -49,7 +49,6 @@ describe Person do
     end
   end
 
-
   context 'when adding a rental' do
     book = Book.new('CS', 'Grace')
     person = Person.new(nil, 17, name: 'Milli', parent_permission: false)
